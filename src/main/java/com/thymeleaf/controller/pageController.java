@@ -3,6 +3,7 @@ package com.thymeleaf.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by zhouhaishui on 2017/5/2.
@@ -15,8 +16,8 @@ public class pageController {
      * @return
      */
     @RequestMapping("/")
-    public String page(){
-        return "system/index";
+    public ModelAndView page(){
+        return new ModelAndView("system/index");
     }
 
 
@@ -25,8 +26,8 @@ public class pageController {
      * @return
      */
     @RequestMapping("/redirect")
-    public String page2(){
-        return "redirect/redirect";
+    public ModelAndView page2(){
+        return new ModelAndView("redirect/redirect");
     }
 
 
@@ -36,8 +37,8 @@ public class pageController {
      * @return
      */
     @RequestMapping("/model")
-    public String page3(Model model){
+    public ModelAndView page3(Model model){
         model.addAttribute("name","seawater");
-        return "hello";
+        return new ModelAndView("hello");
     }
 }
